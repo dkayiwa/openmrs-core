@@ -1047,6 +1047,21 @@ public final class OpenmrsConstants {
 	public static final String GP_TURN_OFF_SAVE_HANDLER_VALIDATION = "validation.turnOffSaveHandlerValidation";
 	
 	/**
+	 * Global property name for the display date format.
+	 */
+	public static final String GP_DISPLAY_DATE_FORMAT = "formatting.displayDateFormat";
+	
+	/**
+	 * Global property name for the display time format.
+	 */
+	public static final String GP_DISPLAY_TIME_FORMAT = "formatting.displayTimeFormat";
+	
+	/**
+	 * Global property name for the display date time format.
+	 */
+	public static final String GP_DISPLAY_DATETIME_FORMAT = "formatting.displayDateTimeFormat";
+	
+	/**
 	 * At OpenMRS startup these global properties/default values/descriptions are inserted into the
 	 * database if they do not exist yet.
 	 * 
@@ -1491,6 +1506,12 @@ public final class OpenmrsConstants {
 		
 		props.add(new GlobalProperty(GP_TURN_OFF_SAVE_HANDLER_VALIDATION, "false",
 		        "Set to true to turn off validation when saving objects, else set to false."));
+		
+		props.add(new GlobalProperty(GP_DISPLAY_DATE_FORMAT, "", "The display date format"));
+		
+		props.add(new GlobalProperty(GP_DISPLAY_TIME_FORMAT, "", "The display time format"));
+		
+		props.add(new GlobalProperty(GP_DISPLAY_DATETIME_FORMAT, "", "The display datetime format"));
 		
 		for (GlobalProperty gp : ModuleFactory.getGlobalProperties()) {
 			props.add(gp);

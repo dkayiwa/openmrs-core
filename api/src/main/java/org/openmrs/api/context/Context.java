@@ -1165,7 +1165,8 @@ public class Context {
 	}
 	
 	/**
-	 * Gets the simple date format for the current user's locale. The format will be similar in size
+	 * Gets the simple date format as specified using a global property.
+	 * If empty, gets the one for the current user's locale. The format will be similar in size
 	 * to mm/dd/yyyy
 	 * 
 	 * @return SimpleDateFormat for the user's current locale
@@ -1173,11 +1174,20 @@ public class Context {
 	 * @should return a pattern with four y characters in it
 	 */
 	public static SimpleDateFormat getDateFormat() {
+		/*try {
+			return new SimpleDateFormat(Context.getAdministrationService().getGlobalProperty(
+			    OpenmrsConstants.GP_DISPLAY_DATE_FORMAT, null));
+		}
+		catch (Exception ex) {
+			//ignore because of possibly missing or wrong date format.
+		}*/
+
 		return OpenmrsUtil.getDateFormat(getLocale());
 	}
 	
 	/**
-	 * Gets the simple time format for the current user's locale. The format will be similar to
+	 * Gets the simple time format as specified using a global property.
+	 * If empty, gets the one for the current user's locale. The format will be similar to
 	 * hh:mm a
 	 * 
 	 * @return SimpleDateFormat for the user's current locale
@@ -1185,11 +1195,20 @@ public class Context {
 	 * @should return a pattern with two h characters in it
 	 */
 	public static SimpleDateFormat getTimeFormat() {
+		/*try {
+			return new SimpleDateFormat(Context.getAdministrationService().getGlobalProperty(
+			    OpenmrsConstants.GP_DISPLAY_TIME_FORMAT, null));
+		}
+		catch (Exception ex) {
+			//ignore because of possibly missing or wrong time format.
+		}*/
+
 		return OpenmrsUtil.getTimeFormat(getLocale());
 	}
 	
 	/**
-	 * Gets the simple datetime format for the current user's locale. The format will be similar to
+	 * Gets the simple datetime format as specified using a global property.
+	 * If empty, gets the one for the current user's locale. The format will be similar to
 	 * mm/dd/yyyy hh:mm a
 	 * 
 	 * @return SimpleDateFormat for the user's current locale
@@ -1197,6 +1216,14 @@ public class Context {
 	 * @should return a pattern with four y characters and two h characters in it
 	 */
 	public static SimpleDateFormat getDateTimeFormat() {
+		/*try {
+			return new SimpleDateFormat(Context.getAdministrationService().getGlobalProperty(
+			    OpenmrsConstants.GP_DISPLAY_DATETIME_FORMAT, null));
+		}
+		catch (Exception ex) {
+			//ignore because of possibly missing or wrong datetime format.
+		}*/
+
 		return OpenmrsUtil.getDateTimeFormat(getLocale());
 	}
 	
